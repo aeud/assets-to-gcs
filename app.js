@@ -18,7 +18,6 @@ const gcs = require('@google-cloud/storage')({
 });
 
 const walk = (origin, p="") => {
-    let o = {};
     return fs.readdirSync(`${origin}/${p}`).map(f => {
         let newP = `${p}/${f}`;
         let newPath = `${origin}/${newP}`;
