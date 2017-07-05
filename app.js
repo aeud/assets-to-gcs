@@ -29,7 +29,7 @@ const walk = (origin, p="") => {
                 path: `${origin}${newP}`
             }];
         }
-    }).reduce((a, b) => a.concat(b));
+    }).reduce((a, b) => a.concat(b), []);
 };
 
 const bucket = gcs.bucket('lx-test');
