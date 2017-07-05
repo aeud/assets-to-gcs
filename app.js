@@ -23,12 +23,11 @@ const walk = (origin, p="") => {
         let newPath = `${origin}/${newP}`;
         if (fs.statSync(`${origin}/${newP}`).isDirectory()) {
             return walk(origin, newP);
-        } else {
-            return [{
-                key: newP.substr(1),
-                path: `${origin}${newP}`
-            }];
         }
+        return [{
+            key: newP.substr(1),
+            path: `${origin}${newP}`
+        }];
     }).reduce((a, b) => a.concat(b), []);
 };
 
