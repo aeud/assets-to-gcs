@@ -21,7 +21,7 @@ const walk = (origin, p="") => {
     return fs.readdirSync(`${origin}/${p}`).map(f => {
         let newP = `${p}/${f}`;
         let newPath = `${origin}/${newP}`;
-        if (fs.statSync(`${origin}/${newP}`).isDirectory()) {
+        if (fs.statSync(newPath).isDirectory()) {
             return walk(origin, newP);
         }
         return [{
