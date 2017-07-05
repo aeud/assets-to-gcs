@@ -35,6 +35,8 @@ const walk = (origin, p="") => {
 
 const bucket = gcs.bucket('lx-test');
 
-walk(flags.get('path')).forEach(d => {
-    bucket.file(d.key).save(fs.readFileSync(d.path, 'utf-8'));
-});
+Promise.all(walk(flags.get('path')).map(d => {
+    return bucket.file(d.key).save(fs.readFileSync(d.path, 'utf-8'));
+}))
+.then(console.log)
+.catch(console.error);
