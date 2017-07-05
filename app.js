@@ -1,3 +1,5 @@
+#!/usr/local/bin/node
+
 const fs = require('fs');
 const flags = require('flags');
 
